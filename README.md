@@ -51,6 +51,10 @@
 
 [官方文档](https://mp.weixin.qq.com/debug/wxadoc/dev/?t=1475052055990)
 
+## 项目地址
+
+[wechat-app-sample](https://github.com/LiuCaiHe/wechat-app-sample)
+
 
 ## 克隆
 ```
