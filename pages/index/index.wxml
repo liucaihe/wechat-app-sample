@@ -1,0 +1,71 @@
+
+<!-- loading -->
+<loading hidden="{{hidden}}">
+    加载中...
+</loading>
+
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">精选</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">热门</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
+    
+    <!-- 头条新闻 -->
+    <swiper-item>
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+            <view class="hot-main">
+                <view class="hot-main-box">
+                    <view class="hot-main-title">精选日报</view>
+                    <view class="hot-main-subtitle">最新的精选快报</view>
+                </view>
+            </view>
+
+            <view class="hot-box-main">
+                <view wx:for="{{datalist}}" wx:for-item="item" wx:for-index="i">
+                    <view class="hot-box-top">
+                        <text class="hot-box-title">{{datalist[i].dateDay}}</text>
+                    </view>
+                    <view wx:for="{{datalist[i].stories}}" wx:for-index="j" wx:for-item="items">
+                        <navigator id="{{datalist[i].stories[j].id}}" url="../detail/detail?id={{datalist[i].stories[j].id}}">
+                            <view class="list-box">
+                                <view class="list-box-title">{{datalist[i].stories[j].title}}</view>
+                                <view class="list-box-sub">知乎日报</view>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+            <!-- 没有更多的时候 -->
+            <view hidden="{{hotshidden}}" class="hot-box-more">
+                <view wx:if="{{hothidden}}">
+                    <image src="/static/loading.gif" mode="aspectFill"/>
+                </view>
+                <view wx:else>
+                    <text> 没有更多了 </text>
+                </view>
+            </view>
+
+        </scroll-view>
+    </swiper-item>
+
+    <!-- 热门新闻 -->
+    <swiper-item>
+        
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+            <view class="hot-main">
+                <view class="hot-main-box">
+                    <view class="hot-main-title">精选日报</view>
+                    <view class="hot-main-subtitle">最新的精选快报</view>
+                </view>
+            </view>
+
+            
+
+        </scroll-view>
+
+    </swiper-item>
+
+</swiper>
