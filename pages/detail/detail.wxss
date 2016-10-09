@@ -14,7 +14,7 @@ page{ background: #FFF; font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif
 
 .comments-list{ margin-top: 10px; position: relative; padding: 10px; min-height: 40px;}
 .comments-avatar{ position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; }
-.comments-avatar-img{ width: 40px; height: 40px; border-radius: 50%; }
+.comments-avatar-img{ width: 40px; height: 40px; border-radius: 50%; border: 1px solid #F2F2F2; }
 .comments-main{ margin-left: 50px; font-size: 14px; }
 .comments-author{ margin-bottom: 6px; color: #999; font-weight: bold; height: 20px; line-height: 20px; }
 .comments-zan{ float: right; padding-left: 18px; position: relative; font-weight: normal; line-height: 20px; }

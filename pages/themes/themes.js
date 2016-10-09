@@ -13,27 +13,18 @@ Page( {
         // 请求精选数据
         util.AJAX( "theme/" + id, function( res ) {
 
-            var arr = res.data;
-            console.log( arr );
-
-            // var arr = res.data;
-            // var format = util.getFormatDate( arr.date );
-
-            // // 格式化日期方便加载指定日期数据
-            // // 格式化日期获取星期几方便显示
-            // arr[ "dateDay" ] = format.dateDay;
-            // // 获取当前现有数据进行保存
-            // var list = that.data.datalist;
-
             // 重新写入数据
             that.setData( {
-                dataList: arr,
+                dataList: res.data,
             });
         });
 
     },
     onReady: function() {
         // 页面渲染完成
+        wx.setNavigationBarTitle( {
+            title: this.data.dataList.name
+        })
     },
     onShow: function() {
         // 页面显示

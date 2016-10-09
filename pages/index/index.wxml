@@ -42,8 +42,8 @@
             </swiper>
 
             <view class="themes-box-top">
-                <text class="themes-box-title">日报</text>
-                <text class="themes-box-subtitle">你想要知道</text>
+                <text class="themes-box-title">专栏</text>
+                <text class="themes-box-subtitle">你想要知道日报专栏</text>
             </view>
 
             <!-- 日报列表 -->
@@ -93,7 +93,7 @@
                     </view>
                 </view>
             </view>
-            
+
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
                 <view wx:if="{{hothidden}}">
