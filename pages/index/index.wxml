@@ -5,20 +5,76 @@
 </loading>
 
 <view class="swiper-tab">
-    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">精选</view>
-    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">热门</view>
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">日报</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">精选</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px" bindchange="bindChange">
     
-    <!-- 头条新闻 -->
+    <!-- 日报 -->
+    <swiper-item>
+        
+        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
+                    lower-threshold="100" bindscrolltolower="scrolltolower">
+            
+            <!--
+                幻灯片
+                indicator-dots  Boolean     是否显示面板指示点
+                autoplay        Boolean     是否自动切换
+                current         Number      当前所在页面的 index
+                interval        Number      自动切换时间间隔
+                duration        Number      滑动动画时长
+                bindchange      Event       current 改变时会触发 change 事件，event.detail = {current: current}
+
+                IMAGE
+                mode参数
+                    aspectFill      保持纵横比缩放图片，只保证图片的短边能完全显示出来
+                    aspectFit       保持纵横比缩放图片，使图片的长边能完全显示出来
+                    scaleToFill     不保持纵横比缩放图片，使图片完全适应
+
+            -->
+            <swiper class="swiper-boxs" indicator-dots autoplay duration="300">
+                <swiper-item wx:for="{{topStories}}">
+                    <navigator url="../detail/detail?id={{topStories[index].id}}">
+                        <image mode="aspectFill" class="swiper-boxs-img" src="{{topStories[index].image}}" />
+                    </navigator>
+                </swiper-item>
+            </swiper>
+
+            <view class="themes-box-top">
+                <text class="themes-box-title">日报</text>
+                <text class="themes-box-subtitle">你想要知道</text>
+            </view>
+
+            <!-- 日报列表 -->
+            <view class="themes-list">
+
+                <view class="themes-list-box" wx:for="{{dataThemes}}">
+                    <navigator url="../themes/themes?id={{item.id}}">
+                        <view class="themes-list-thumbnail">
+                            <image class="themes-list-img" src="{{item.thumbnail}}" />
+                        </view>
+                        <view class="themes-list-main">
+                            <view class="themes-list-name">{{item.name}}</view>
+                            <view class="themes-list-description">{{item.description}}</view>
+                        </view>
+                    </navigator>
+                </view>
+
+            </view>
+
+        </scroll-view>
+
+    </swiper-item>
+
+    <!-- 精选 -->
     <swiper-item>
         <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
                     lower-threshold="100" bindscrolltolower="scrolltolower">
             <view class="hot-main">
                 <view class="hot-main-box">
-                    <view class="hot-main-title">精选日报</view>
-                    <view class="hot-main-subtitle">最新的精选快报</view>
+                    <view class="hot-main-title">精选</view>
+                    <view class="hot-main-subtitle">呈现最新的精选日报</view>
                 </view>
             </view>
 
@@ -48,24 +104,6 @@
             </view>
 
         </scroll-view>
-    </swiper-item>
-
-    <!-- 热门新闻 -->
-    <swiper-item>
-        
-        <scroll-view class="hot-box" scroll-y="true" upper-threshold="50" 
-                    lower-threshold="100" bindscrolltolower="scrolltolower">
-            <view class="hot-main">
-                <view class="hot-main-box">
-                    <view class="hot-main-title">精选日报</view>
-                    <view class="hot-main-subtitle">最新的精选快报</view>
-                </view>
-            </view>
-
-            
-
-        </scroll-view>
-
     </swiper-item>
 
 </swiper>

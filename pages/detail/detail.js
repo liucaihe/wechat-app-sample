@@ -188,8 +188,6 @@ Page( {
             title: this.data.data.title
         })
 
-        console.log( this.data.comments );
-
 
     },
     onShow: function() {

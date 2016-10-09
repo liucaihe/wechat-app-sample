@@ -10,10 +10,15 @@ Page( {
         winWidth: 0,
         winHeight: 0,
 
+        // tab切换
         currentTab: 0,
 
-        // 请求的数据
+        // 幻灯片数据
+        topStories : [],
+        // 精选数据
         datalist: [],
+        // 日报数据
+        dataThemes : [],
 
         dataListDateCurrent: 0,      // 当前日期current
         dataListDateCount: 0,      // 请求次数
@@ -63,7 +68,7 @@ Page( {
             hidden: false
         });
 
-        // 请求数据
+        // 请求精选数据
         util.AJAX( "news/latest", function( res ) {
 
             var arr = res.data;
@@ -75,13 +80,26 @@ Page( {
             // 获取当前现有数据进行保存
             var list = that.data.datalist;
 
-            // 然后重新写入数据
+            // 重新写入数据
             that.setData( {
                 datalist: list.concat( arr ),
+                topStories : arr.top_stories,
                 dataListDateCurrent: arr.date,    // 当前日期
                 dataListDateCount: 1
             });
         });
+
+        // 请求日报数据
+        util.AJAX( "themes", function( res ) {
+
+            var arr = res.data.others;
+
+            // 重新写入数据
+            that.setData( {
+                dataThemes: arr,
+            });
+        });
+
     },
     onReady: function() {
         // 页面渲染完成
