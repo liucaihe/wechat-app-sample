@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/themes/themes"
   ],
   "window":{
     "backgroundTextStyle":"white",

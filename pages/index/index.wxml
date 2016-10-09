@@ -93,6 +93,7 @@
                     </view>
                 </view>
             </view>
+            
             <!-- 没有更多的时候 -->
             <view hidden="{{hotshidden}}" class="hot-box-more">
                 <view wx:if="{{hothidden}}">

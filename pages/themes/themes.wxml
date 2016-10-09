@@ -1,0 +1,22 @@
+<scroll-view scroll-y="true" class="contain_detail_cnt">
+
+    <view class="hot-main">
+        <view class="hot-main-box">
+            <view class="hot-main-title">{{dataList.name}}</view>
+            <view class="hot-main-subtitle">{{dataList.description}}</view>
+        </view>
+    </view>
+
+    <!-- 列表 -->
+    <view class="hot-box-main">
+        <view wx:for="{{dataList.stories}}" wx:for-index="i" wx:for-item="items">
+            <navigator id="{{items.id}}" url="../detail/detail?id={{items.id}}">
+
+                <view class="list-box">
+                    <view class="list-box-title">{{items.title}}</view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+
+</scroll-view>

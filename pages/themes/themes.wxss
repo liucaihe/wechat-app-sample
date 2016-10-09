@@ -1,0 +1,17 @@
+page{ background: #FFF; font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif; }
+.contain_detail_cnt { height: 100%; width: 100%; overflow: hidden; }
+
+.themes-box{ background-size: cover; height: 200px; width: 100%; }
+
+.hot-main{ height: 50px; background: url("../../static/001.jpg") #FFF no-repeat 0 50%; background-size: cover; padding: 30px 20px; position: relative; z-index: 1; }
+.hot-main::before{ position: absolute; top: 0; bottom: 0; left: 0; right: 0; content: ''; background-image: linear-gradient(180deg, rgba(0,0,0,0.05) 5%,rgba(0,0,0,0.5) 100%); }
+
+.hot-main-box{ position: relative; z-index: 2; }
+.hot-main-title{ color: #FFF; font-size: 34rpx;  }
+.hot-main-subtitle{ color: #FFF; font-size: 26rpx; margin-top: 4px; }
+
+.hot-box-main{ display: block; overflow: hidden; margin-bottom: 20px; background: #FFF; }
+.list-box{ padding: 20px 20px 20px 40px; display: block; font-size: 30rpx; border-bottom: 1px solid #F6F6F6; position: relative;}
+.list-box::after{ display: block; content: ""; position: absolute; width: 6px; height: 6px; background: #ff6511; border-radius: 50%; top: 25px; left: 20px; }
+.list-box-title{ font-weight: 400; line-height: 42rpx; }
+.list-box-sub{ font-size: 24rpx; color: #666; padding-top: 6px; }
