@@ -6,8 +6,9 @@ Page( {
         // text:"这是一个页面"
         data: [],
         databody: null,
+        comments : [],  // 评论
 
-        winHeight: 0,
+        winHeight: 0,   // 设备高度
 
         // 弹窗
         modalHidden: true,
@@ -27,14 +28,14 @@ Page( {
         var id = options.id;
 
 
-        // 请求数据
+        // 请求内容数据
         util.AJAX( "news/" + id, function( res ) {
 
             var arr = res.data;
             var body = arr.body;
             body = body.match( /<p>.*?<\/p>/g );
             var ss = [];
-            for( var i = 0;i < body.length;i++ ) {
+            for( var i = 0, len = body.length; i < len;i++ ) {
 
                 ss[ i ] = /<img.*?>/.test( body[ i ] );
 
@@ -52,10 +53,26 @@ Page( {
                 }
             }
 
-            // 然后重新写入数据
+            // 重新写入数据
             that.setData( {
                 data: arr,
                 databody: body
+            });
+
+        });
+
+        // 请求评论
+        util.AJAX( "story/" + id + "/short-comments", function( res ) {
+
+            var arr = res.data.comments;
+            
+            for ( var i = 0, len = arr.length; i < len; i++ ){
+                arr[i]['times'] = util.getTime( arr[i].time );
+            }
+
+            // 重新写入数据
+            that.setData( {
+                comments: arr
             });
 
         });
@@ -170,6 +187,8 @@ Page( {
         wx.setNavigationBarTitle( {
             title: this.data.data.title
         })
+
+        console.log( this.data.comments );
 
 
     },

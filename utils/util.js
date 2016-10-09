@@ -21,11 +21,36 @@ function formatNumber(n) {
     return n[1] ? n : '0' + n;
 }
 
+// 格式化时间戳
+function getTime( timestamp ) {
+    var time = arguments[ 0 ] || 0;
+    var t, y, m, d, h, i, s;
+    t = time ? new Date( time * 1000 ) : new Date();
+    y = t.getFullYear();    // 年
+    m = t.getMonth() + 1;   // 月
+    d = t.getDate();        // 日
+    h = t.getHours();       // 时
+    i = t.getMinutes();     // 分
+    s = t.getSeconds();     // 秒
 
+    // 定义时间格式
+    return y 
+            + '-' 
+            + ( m < 10 ? '0' + m : m ) 
+            + '-' 
+            + ( d < 10 ? '0' + d : d ) 
+            + ' ' 
+            + ( h < 10 ? '0' + h : h ) 
+            + ':' 
+            + ( i < 10 ? '0' + i : i ) 
+            + ':' 
+            + ( s < 10 ? '0' + s : s );
+}
 
 module.exports = {
 
     formatTime: formatTime,
+    getTime : getTime,
 
     AJAX : function( data = '', fn, method = "get", header = {}){
         wx.request({

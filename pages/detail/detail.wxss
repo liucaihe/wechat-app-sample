@@ -8,6 +8,21 @@ page{ background: #FFF; font-family: 'Helvetica Neue',Helvetica,Arial,Sans-serif
 .scrollLoading{ width: 100%; height: 220px; display: block; margin: 10px 0; }
 .contView{ padding: 0 20px 10px; }
 
+/* 评论 */
+.content-comments{ margin-bottom: 20px; }
+.comments-title{ font-size: 14px; font-weight: bold; display: block; text-align: center; padding: 10px; }
+
+.comments-list{ margin-top: 10px; position: relative; padding: 10px; min-height: 40px;}
+.comments-avatar{ position: absolute; top: 10px; left: 10px; width: 40px; height: 40px; }
+.comments-avatar-img{ width: 40px; height: 40px; border-radius: 50%; }
+.comments-main{ margin-left: 50px; font-size: 14px; }
+.comments-author{ margin-bottom: 6px; color: #999; font-weight: bold; height: 20px; line-height: 20px; }
+.comments-zan{ float: right; padding-left: 18px; position: relative; font-weight: normal; line-height: 20px; }
+.comments-zan::before{ content: ''; height: 14px; width: 14px; background: url("../../static/zan.png")  #FFF no-repeat 50% 50%; background-size: cover; position: absolute; top: 2px; left: 0; }
+.comments-content{ color: #666; line-height: 20px; }
+.comments-data{ height: 18px; margin-top: 5px; line-height: 18px; font-size: 12px; color: #999; }
+
+.not-comments{ text-align: center; padding: 30px 20px; font-size: 14px; color: #999; }
 
 /* 浮动 */
 .extra{ height: 40px; background: #FFF; border-top: 1px solid #F2F2F2; position: fixed; bottom: 0px; left: 0; right: 0px; width: 100%; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1); }
