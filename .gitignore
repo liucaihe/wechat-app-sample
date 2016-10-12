@@ -1,0 +1,4 @@
+
+# 忽略 DS_store 文件
+.DS_Store
+
