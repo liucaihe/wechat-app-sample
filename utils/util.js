@@ -16,7 +16,6 @@ function formatTime( date ) {
 }
 
 function formatNumber(n) {
-    console.log( n );
     n = n.toString();
     return n[1] ? n : '0' + n;
 }
@@ -29,22 +28,13 @@ function getTime( timestamp ) {
     y = t.getFullYear();    // 年
     m = t.getMonth() + 1;   // 月
     d = t.getDate();        // 日
+
     h = t.getHours();       // 时
     i = t.getMinutes();     // 分
     s = t.getSeconds();     // 秒
 
-    // 定义时间格式
-    return y 
-            + '-' 
-            + ( m < 10 ? '0' + m : m ) 
-            + '-' 
-            + ( d < 10 ? '0' + d : d ) 
-            + ' ' 
-            + ( h < 10 ? '0' + h : h ) 
-            + ':' 
-            + ( i < 10 ? '0' + i : i ) 
-            + ':' 
-            + ( s < 10 ? '0' + s : s );
+    return [ y, m, d ].map( formatNumber ).join('-') + ' ' + [ h, i, s ].map( formatNumber ).join(':');
+    
 }
 
 module.exports = {
