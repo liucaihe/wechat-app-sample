@@ -11,6 +11,8 @@
 
 项目持续开发优化, 
 
+## 更新日志
+[fix] 首页无法显示的问题 (11/11)[感谢Di](https://github.com/icindy) 
 
 ## 演示
 ![动态图](./demo/demo.gif)

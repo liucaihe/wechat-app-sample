@@ -10,5 +10,6 @@
     "navigationBarTitleText": "首页",
     "navigationBarTextStyle":"white",
     "backgroundColor" : "#FFF"
-  }
+  },
+  "debug" : true
 }
